@@ -76,3 +76,16 @@ exports.deleteRoutine = async (req, res) => {
     res.status(500).json({ error: 'Error deleting the routine' });
   }
 };
+
+
+exports.getAllSimple = async (req, res) => {
+  try {
+    const rutinas = await Rutina.findAll({
+      attributes: ['id', 'nombre'], // Solo traemos lo necesario para el select
+    });
+    res.json(rutinas);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error retrieving routines' });
+  }
+};

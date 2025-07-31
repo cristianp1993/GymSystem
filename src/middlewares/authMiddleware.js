@@ -19,7 +19,7 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-// ✅ Middleware para restringir por roles
+// Middleware para restringir por roles
 const authorizeRoles = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.rol)) {

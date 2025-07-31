@@ -16,4 +16,7 @@ router.put('/:id', authMiddleware, authorizeRoles('admin'), routineController.up
 // Eliminar rutina (solo admin)
 router.delete('/:id', authMiddleware, authorizeRoles('admin'), routineController.deleteRoutine);
 
+// Obtener rutina por ID pero solo id nombre, para selectores
+router.get('/simple', routineController.getAllSimple);
+
 module.exports = router;
